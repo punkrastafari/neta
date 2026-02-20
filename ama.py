@@ -2,6 +2,7 @@ import subprocess
 
 # Lista de URLs
 urls = [
+    "https://www.bloomberg.com/live/us-btv",
     "https://www.ms.now/live",
     "https://www.foxnews.com/video/5614626175001",
     "https://abcnews.com/live/video/special-live-10/",
