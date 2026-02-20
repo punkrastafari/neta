@@ -2,7 +2,7 @@ name: Baixando TODO
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Executa a cada 6 horas
+    - cron: '0 */2 * * *'  # Executa a cada 2 horas
   workflow_dispatch:
 
 jobs:
