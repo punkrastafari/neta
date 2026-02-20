@@ -3,6 +3,7 @@
 
 # 2. Gera a lista com TODOS os links
 !allfinder \
+"https://www.ms.now/live" \
 "https://globoplay.globo.com/v/4613774/" \
 "https://globoplay.globo.com/ao-vivo/7689934/" \
 "https://globoplay.globo.com/ao-vivo/7690141/" \
@@ -44,5 +45,4 @@
 "https://globoplay.globo.com/v/10747444/" \
 "https://globoplay.globo.com/v/10740500/" \
 "https://abcnews.com/live/video/special-live-10/" \
-"https://www.ms.now/live" \
 -o lista_final.m3u
