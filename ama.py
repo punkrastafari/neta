@@ -3,6 +3,18 @@ import subprocess
 # Lista de URLs
 urls = [
     "https://www.ms.now/live",
+    "https://www.soultv.com.br/channel/167",
+    "https://www.soultv.com.br/channel/176",
+    "https://www.soultv.com.br/channel/178",
+    "https://www.soultv.com.br/channel/214",
+    "https://www.soultv.com.br/channel/332",
+    "https://www.soultv.com.br/channel/78",
+    "https://www.soultv.com.br/channel/73",
+    "https://www.soultv.com.br/channel/166",
+    "https://www.soultv.com.br/channel/140",
+    "https://www.soultv.com.br/channel/137",
+    "https://www.soultv.com.br/channel/230",
+    "https://www.soultv.com.br/channel/181",
     "https://globoplay.globo.com/v/4613774/",
     "https://globoplay.globo.com/ao-vivo/7689934/",
     "https://globoplay.globo.com/ao-vivo/7690141/",
