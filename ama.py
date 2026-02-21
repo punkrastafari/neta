@@ -30,16 +30,17 @@ for url, output_file in zip(urls, output_files):
     command = ["allfinder"] + [url] + ["-o", output_file]
     subprocess.run(command, check=True)
 
-    # Agora, vamos limpar o arquivo gerado para remover as linhas de #EXTINF
+    # Agora, vamos limpar o arquivo gerado para remover as linhas desnecessárias
     with open(output_file, "r") as f:
         lines = f.readlines()
 
-    # Filtra apenas as linhas que começam com a URL
-    cleaned_lines = [line.strip() for line in lines if not line.startswith("#EXTINF")]
+    # Filtra apenas as linhas que são URLs (removendo #EXTM3U e #EXTINF)
+    cleaned_lines = [line.strip() for line in lines if not line.startswith("#")]
 
-    # Grava apenas as URLs no arquivo .m3u8
+    # Grava as URLs no arquivo .m3u8, sem as linhas de #EXTM3U ou #EXTINF
     with open(output_file, "w") as f:
         for line in cleaned_lines:
-            f.write(line + "\n")
+            if line:  # Adiciona apenas linhas não vazias
+                f.write(line + "\n")
 
     print(f"Lista gerada com sucesso para {url}, arquivo: {output_file}")
