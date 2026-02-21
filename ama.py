@@ -17,28 +17,20 @@ import subprocess
 
 # Lista de URLs
 urls = [
-"https://www.foxnews.com/video/5614615980001"
+    "https://www.foxnews.com/video/5614615980001",
+    "https://www.foxnews.com/video/5614626175001"
 ]
 
-# Monta o comando
-command = ["allfinder"] + urls + ["-o", "FXN.m3u8"]
+# Caminhos dos arquivos de saída
+output_files = ["FXN.m3u8", "FXNB.m3u8"]
 
-# Executa
-subprocess.run(command, check=True)
+# Itera sobre as URLs e os arquivos de saída
+for url, output_file in zip(urls, output_files):
+    with open(output_file, "w") as f:
+        f.write(url + "\n")  # Escreve apenas a URL no arquivo
 
-print("Lista gerada com sucesso!")
+    # Executa o comando allfinder
+    command = ["allfinder"] + [url] + ["-o", output_file]
+    subprocess.run(command, check=True)
 
-import subprocess
-
-# Lista de URLs
-urls = [
-"https://www.foxnews.com/video/5614626175001"
-]
-
-# Monta o comando
-command = ["allfinder"] + urls + ["-o", "FXNB.m3u8"]
-
-# Executa
-subprocess.run(command, check=True)
-
-print("Lista gerada com sucesso!")
+    print(f"Lista gerada com sucesso para {url}, arquivo: {output_file}")
