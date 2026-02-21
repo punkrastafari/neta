@@ -26,11 +26,20 @@ output_files = ["FXN.m3u8", "FXNB.m3u8"]
 
 # Itera sobre as URLs e os arquivos de saída
 for url, output_file in zip(urls, output_files):
-    with open(output_file, "w") as f:
-        f.write(url + "\n")  # Escreve apenas a URL no arquivo
-
-    # Executa o comando allfinder
+    # Executa o comando allfinder para buscar as m3u8
     command = ["allfinder"] + [url] + ["-o", output_file]
     subprocess.run(command, check=True)
+
+    # Agora, vamos limpar o arquivo gerado para remover as linhas de #EXTINF
+    with open(output_file, "r") as f:
+        lines = f.readlines()
+
+    # Filtra apenas as linhas que começam com a URL
+    cleaned_lines = [line.strip() for line in lines if not line.startswith("#EXTINF")]
+
+    # Grava apenas as URLs no arquivo .m3u8
+    with open(output_file, "w") as f:
+        for line in cleaned_lines:
+            f.write(line + "\n")
 
     print(f"Lista gerada com sucesso para {url}, arquivo: {output_file}")
